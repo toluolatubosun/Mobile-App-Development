@@ -1,6 +1,8 @@
-import Home from './screens/Home'
 import { useFonts } from "expo-font"
 import AppLoading from 'expo-app-loading';
+
+import Home from './screens/Home'
+import HomeStack from "./routes/HomeStack";
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -13,6 +15,6 @@ export default function App() {
 	}
 
 	return (
-		<Home />
+		<HomeStack />
 	);
 }
