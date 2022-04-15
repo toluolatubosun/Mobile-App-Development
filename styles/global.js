@@ -5,6 +5,7 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
+        fontFamily: 'poppins-bold',
     },
     paragraph: {
         marginVertical: 8,
