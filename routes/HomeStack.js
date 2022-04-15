@@ -10,8 +10,22 @@ export default function HomeStack(){
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Note" component={Note} />
+                <Stack.Screen 
+                    name="Home" component={Home} 
+                    options={{ 
+                        title: 'Notes App', 
+                        headerStyle: { 
+                            backgroundColor: "#ccc"
+                        } 
+                    }}
+                />
+                <Stack.Screen 
+                    name="Note" c
+                    component={Note} 
+                    options={({ route }) => ({ 
+                        title: route.params.title 
+                    })}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
