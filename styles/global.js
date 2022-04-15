@@ -5,7 +5,7 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-        fontFamily: 'poppins-bold',
+        fontFamily: 'poppins-regular',
     },
     paragraph: {
         marginVertical: 8,
@@ -14,5 +14,6 @@ export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        backgroundColor: '#fff'
     },
 });
