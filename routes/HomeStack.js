@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Header from '../components/Header';
 
 import Home from "../screens/Home"
 import Note from "../screens/Note"
@@ -11,12 +12,13 @@ export default function HomeStack(){
             <Stack.Screen 
                 name="Home" 
                 component={Home} 
-                options={{ 
-                    title: 'Notes App', 
-                    headerStyle: { 
-                        backgroundColor: "#ccc"
-                    } 
-                }}
+                options={
+                    ({ navigation }) => {
+                        return { 
+                            headerTitle: () => <Header title="Notes" navigation={navigation}/>,
+                        }
+                    }                        
+                }
             />
             <Stack.Screen 
                 name="Note"
