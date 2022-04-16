@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Header from '../components/Header';
 
 import Aboout from "../screens/About"
 
@@ -10,12 +11,13 @@ export default function AbooutStack(){
             <Stack.Screen 
                 name="About" 
                 component={Aboout} 
-                options={{ 
-                    title: 'About', 
-                    headerStyle: { 
-                        backgroundColor: "#ccc"
-                    } 
-                }}
+                options={
+                    ({ navigation }) => {
+                        return { 
+                            headerTitle: () => <Header title="About" navigation={navigation}/>,
+                        }
+                    }   
+                }
             />
         </Stack.Navigator>
     )
