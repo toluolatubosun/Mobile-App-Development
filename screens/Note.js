@@ -7,8 +7,7 @@ export default function Note({ route, navigation }) {
 
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.titleText}>{title}</Text>
-            <Text>{body}</Text>
+            <Text style={globalStyles.paragraph}>{body}</Text>
         </View>
     )
 }

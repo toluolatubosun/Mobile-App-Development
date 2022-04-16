@@ -10,10 +10,16 @@ export const globalStyles = StyleSheet.create({
     paragraph: {
         marginVertical: 8,
         lineHeight: 20,
+        fontFamily: 'poppins-regular',
     },
     container: {
         flex: 1,
         padding: 20,
         backgroundColor: '#fff'
     },
+    summary: {
+        color: '#333',
+        fontFamily: 'poppins-regular',
+        marginVertical: '0.4rem'
+    }
 });
