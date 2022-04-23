@@ -21,5 +21,13 @@ export const globalStyles = StyleSheet.create({
         color: '#333',
         fontFamily: 'poppins-regular',
         marginVertical: '0.4rem'
-    }
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#ddd',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 6,
+        marginBottom: 10,
+    },
 });
