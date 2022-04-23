@@ -5,15 +5,17 @@ import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { Button } from "react-native-web";
 
-export default function Form({ HandleSubmit }){
+
+export default function Form({ HandleSubmit, Schema }) {
 
     return (
         <View style={globalStyles.container}>
             <Formik
                 initialValues={{ title: '', body: '' }}
+                validationSchema={Schema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    
+
                     HandleSubmit(values);
                 }}
             >

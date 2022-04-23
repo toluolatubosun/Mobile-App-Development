@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Modal, StyleSheet, Keyboard } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import { globalStyles } from '../styles/global';
 import Card from '../components/Card'
 import { MaterialIcons } from '@expo/vector-icons';
+import * as yup from "yup";
 
 import Form from './Form';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+
+const NoteSchema = yup.object({
+    title: yup.string().required().min(6),
+    body: yup.string().required().min(20),
+})
 
 export default function Home({ navigation }) {
 
@@ -32,17 +37,15 @@ export default function Home({ navigation }) {
         <View style={globalStyles.container}>
             
             <Modal visible={modalVisible} animationType="slide">
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <View style={styles.modalContent}>
-                        <MaterialIcons
-                            name='close'
-                            size={24}
-                            onPress={() => setModalVisible(false)}
-                            style={[styles.modalToggle, styles.modalClose]} 
-                        />
-                        <Form HandleSubmit={AddNote}/>
-                    </View>
-                </TouchableWithoutFeedback>
+                <View style={styles.modalContent}>
+                    <MaterialIcons
+                        name='close'
+                        size={24}
+                        onPress={() => setModalVisible(false)}
+                        style={[styles.modalToggle, styles.modalClose]} 
+                    />
+                    <Form HandleSubmit={AddNote} Schema={NoteSchema}/>
+                </View>
             </Modal>
 
             <MaterialIcons
