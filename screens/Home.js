@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import { globalStyles } from '../styles/global';
 import Card from '../components/Card'
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Home({ navigation }) {
+
+    const [modalVisible, setModalVisible] = React.useState(false);
+
     const [notes, setNotes] = React.useState([
         { title: 'Hello World', key: 1, body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit loremque quidem quasi?'},
         { title: 'Hello Metaverse', key: 2, body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit loremque quidem quasi?'},
@@ -12,6 +16,25 @@ export default function Home({ navigation }) {
 
     return (
         <View style={globalStyles.container}>
+            
+            <Modal visible={modalVisible} animationType="slide">
+                <View style={styles.modalContent}>
+                    <MaterialIcons
+                        name='close'
+                        size={24}
+                        onPress={() => setModalVisible(false)}
+                        style={[styles.modalToggle, styles.modalClose]} 
+                    />
+                    <Text>Hello</Text>
+                </View>
+            </Modal>
+
+            <MaterialIcons
+                name='add'
+                size={24}
+                onPress={() => setModalVisible(true)}
+                style={styles.modalToggle}
+            />
             <FlatList 
                 data={notes}
                 renderItem={({ item }) => (
@@ -32,3 +55,23 @@ export default function Home({ navigation }) {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    modalToggle: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 10,
+      borderWidth: 1,
+      borderColor: '#f2f2f2',
+      padding: 10,
+      borderRadius: 10,
+      alignSelf: 'center',
+    },
+    modalClose: {
+      marginTop: 20,
+      marginBottom: 0,
+    },
+    modalContent: {
+      flex: 1,
+    }
+  })
