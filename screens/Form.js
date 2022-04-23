@@ -1,10 +1,8 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity, Modal, StyleSheet } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
-import { Button } from "react-native-web";
-
 
 export default function Form({ HandleSubmit, Schema }) {
 
@@ -37,12 +35,10 @@ export default function Form({ HandleSubmit, Schema }) {
                             value={props.values.body}
                         />
                         <Text style={globalStyles.errorText}>{ props.touched.title && props.errors.body }</Text>
-                    
-                        <Button
-                            color="#333"
-                            title="Submit"
-                            onPress={props.handleSubmit}
-                        />
+
+                        <Pressable style={globalStyles.button} onPress={props.handleSubmit}>
+                            <Text style={globalStyles.buttonText}>Submit</Text>
+                        </Pressable>
                     </View>
                 )}
             </Formik>

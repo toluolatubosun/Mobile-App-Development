@@ -35,5 +35,18 @@ export const globalStyles = StyleSheet.create({
         marginBottom: 10,
         textTransform: 'capitalize',
         fontFamily: 'poppins-bold',
+    }, 
+    button: {
+        backgroundColor: '#333',
+        padding: 14,
+        borderRadius: 6,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+        fontFamily: 'poppins-regular',
+        textTransform: 'uppercase',
+        textAlign: 'center',
     }
 });
