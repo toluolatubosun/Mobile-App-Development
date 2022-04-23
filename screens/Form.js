@@ -27,6 +27,8 @@ export default function Form({ HandleSubmit, Schema }) {
                             onChangeText={props.handleChange("title")}
                             value={props.values.title}
                         />
+                        <Text style={globalStyles.errorText}>{ props.touched.title && props.errors.title }</Text>
+
                         <TextInput
                             multiline
                             style={globalStyles.input}
@@ -34,6 +36,8 @@ export default function Form({ HandleSubmit, Schema }) {
                             onChangeText={props.handleChange("body")}
                             value={props.values.body}
                         />
+                        <Text style={globalStyles.errorText}>{ props.touched.title && props.errors.body }</Text>
+                    
                         <Button
                             color="#333"
                             title="Submit"

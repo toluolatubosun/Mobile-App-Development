@@ -30,4 +30,10 @@ export const globalStyles = StyleSheet.create({
         borderRadius: 6,
         marginBottom: 10,
     },
+    errorText: {
+        color: 'crimson',
+        marginBottom: 10,
+        textTransform: 'capitalize',
+        fontFamily: 'poppins-bold',
+    }
 });
